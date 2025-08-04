@@ -12,7 +12,6 @@ import { RightSidebar } from "@/components/RightSidebar"
 export default function MissionControl() {
   const [assets, setAssets] = useState<AssetData[]>(initialAssets)
   const [selectedAssetId, setSelectedAssetId] = useState<string>(assets[0].id)
-  const [currentTime, setCurrentTime] = useState(new Date())
   const [commands, setCommands] = useState<CommandState[]>([
     { id: "detumble", status: "idle" },
     { id: "deploy", status: "idle" },
@@ -33,14 +32,6 @@ export default function MissionControl() {
   const [isResizingRight, setIsResizingRight] = useState(false)
 
   const selectedAsset = assets.find((asset) => asset.id === selectedAssetId) || assets[0]
-
-  // Update time every second
-  useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentTime(new Date())
-    }, 1000)
-    return () => clearInterval(timer)
-  }, [])
 
   // Simulate real-time telemetry updates
   useEffect(() => {
@@ -117,7 +108,7 @@ export default function MissionControl() {
 
   return (
     <div className="h-screen bg-gray-50 flex flex-col overflow-hidden">
-      <Header currentTime={currentTime} />
+      <Header />
 
       <div className="flex-1 flex overflow-hidden">
         <LeftSidebar
