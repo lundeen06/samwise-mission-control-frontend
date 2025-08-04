@@ -337,9 +337,9 @@ export function RightSidebar({
           className="absolute top-0 left-0 w-1 h-full cursor-col-resize hover:bg-blue-500 transition-colors group"
           onMouseDown={onResizeStart}
         >
-          <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-1/2">
+          {/* <div className="absolute top-1/2 left-0 transform -translate-y-1/2 -translate-x-3/2">
             <GripVertical className="h-4 w-4 text-gray-400 group-hover:text-blue-500" />
-          </div>
+          </div> */}
         </div>
       )}
     </motion.div>
